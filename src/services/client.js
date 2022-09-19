@@ -10,3 +10,8 @@ export function checkError({ data, error }) {
   }
   return data;
 }
+
+export function getBlogs() {
+  const response = client.from('blogs').select('*');
+  return checkError(response);
+}
