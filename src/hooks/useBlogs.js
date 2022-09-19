@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { getBlogs } from '../services/client';
+import { useEffect, useState } from 'react';
+import { getBlogs } from '../services/client.js';
 
 export function useBlogs() {
   const [blogs, setBlogs] = useState([]);
@@ -8,10 +7,11 @@ export function useBlogs() {
   useEffect(() => {
     async function fetchData() {
       const data = await getBlogs();
+      console.log(data);
       setBlogs(data);
     }
     fetchData();
   }, []);
 
-  return blogs;
+  return { blogs };
 }
