@@ -7,7 +7,6 @@ export function useBlogs() {
   useEffect(() => {
     async function fetchData() {
       const data = await getBlogs();
-      console.log(data);
       setBlogs(data);
     }
     fetchData();
